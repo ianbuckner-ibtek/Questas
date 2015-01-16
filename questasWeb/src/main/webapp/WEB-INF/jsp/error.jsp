@@ -12,15 +12,12 @@
 <meta name="author" content="Questas">
 <link rel="icon" href="images/favicon.ico">
 
-<title><spring:message code="page.title"></spring:message></title>
+<title>Questas</title>
 <link
 	href="<c:url value="/resources/bootstrap/dist/css/bootstrap.min.css" />"
 	rel="stylesheet">
 <link href="<c:url value="/resources/css/base.css" />" rel="stylesheet">
-<c:if test="${viewName != null}">
-	<link href="<c:url value="/resources/css/${viewName}.css" />"
-		rel="stylesheet">
-</c:if>
+
 </head>
 
 <c:if test="${navTitle == null}">
@@ -34,20 +31,21 @@
 		<div class="header">
 			<nav>
 				<ul class="nav nav-pills pull-right">
+					<li role="presentation" class="active"><a
+						href="<c:url value="/home" />">Back</a></li>
 
-					<c:choose>
-
-						<c:when test="${pageContext.request.userPrincipal.name != null}">
-							<li role="presentation" class="active"><a
-								href="javascript:formSubmit()">Logout</a></li>
-						</c:when>
-
-						<c:otherwise>
-							<li role="presentation" class="active"><a
-								href="<c:url value="${navUrl}" />"><spring:message code="${navTitle}"></spring:message></a></li>
-						</c:otherwise>
-					</c:choose>
 				</ul>
 			</nav>
-			<h3 class="text-muted"><spring:message code="header.title"></spring:message></h3>
+			<h3 class="text-muted">Questas Online</h3>
 		</div>
+		<div class="jumbotron">
+			<h1>Whoops!</h1>
+			<p>Well that wasn't supposed to happen!</p>
+			<p>Maybe you tried to go to a page that doesn't exist or did
+				something else that we were not expecting you to do. Never mind,
+				please accept our heartfelt apologies and hit the button above to
+				try again.</p>
+
+		</div>
+
+		<%@ include file="/WEB-INF/jsp/footer.jsp"%>

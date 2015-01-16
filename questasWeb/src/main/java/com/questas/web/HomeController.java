@@ -2,6 +2,8 @@ package com.questas.web;
 
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -55,6 +57,23 @@ public class HomeController {
 
 		return model;
 
+	}
+	
+	@RequestMapping(value = "/admin", method = RequestMethod.GET)
+	public String admin(Locale locale, Model model) {
+		return "admin/admin";
+	}
+	
+	@RequestMapping("/signin")
+    public String signIn(HttpServletRequest request) {
+        if (request.isUserInRole("ROLE_ADMIN")) return "redirect:/admin";
+        if (request.isUserInRole("ROLE_USER")) return "redirect:/secure/dashboard";
+        return "redirect:/";
+    }
+	
+	@RequestMapping("/home")
+	public String home(HttpServletRequest request) {
+		return signIn(request);
 	}
 
 }

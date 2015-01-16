@@ -1,4 +1,3 @@
-<%@page session="false"%>
 <%@ include file="/WEB-INF/jsp/header.jsp" %>
 
       <div class="jumbotron">
@@ -31,7 +30,6 @@
           <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
         </div>
       </div>
-
 <%@ include file="/WEB-INF/jsp/footer.jsp" %>
 
 
