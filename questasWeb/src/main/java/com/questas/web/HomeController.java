@@ -43,11 +43,13 @@ public class HomeController {
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public ModelAndView login(
-			@RequestParam(value = "error", required = false) String error) {
+			@RequestParam(value = "error", required = false) String error,
+			HttpServletRequest request) {
 
 		ModelAndView model = new ModelAndView();
 		if (error != null) {
-			model.addObject("error", "Invalid username and password!");
+			
+			model.addObject("error", "login.invalid");
 		}
 
 		model.setViewName("login");
@@ -75,5 +77,4 @@ public class HomeController {
 	public String home(HttpServletRequest request) {
 		return signIn(request);
 	}
-
 }

@@ -2,7 +2,7 @@
 <%@ include file="/WEB-INF/jsp/header.jsp"%>
 
 <c:if test="${error != null}">
-	<div class="alert alert-danger" role="alert">${error}</div>
+	<div class="alert alert-danger" role="alert"><spring:message code="${error}" /></div>
 </c:if>
 
 <div class="jumbotron">
