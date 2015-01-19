@@ -29,6 +29,8 @@ CREATE TABLE `users` (
   `password` varchar(60) NOT NULL,
   `enabled` tinyint(4) NOT NULL DEFAULT '1',
   `role` varchar(45) NOT NULL,
+  `lastlocation` varchar(25) DEFAULT NULL,
+  `lastaccess` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -39,7 +41,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES ('admin@admin','admin',1,'ROLE_ADMIN'),('demo@demo','demo',1,'ROLE_USER');
+INSERT INTO `users` VALUES ('admin@admin','admin',1,'ROLE_ADMIN','0:0:0:0:0:0:0:1','2015-01-19 14:58:06'),('demo@demo','demo',1,'ROLE_USER','0:0:0:0:0:0:0:1','2015-01-19 14:26:26');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,5 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-01-16 21:53:20
-
+-- Dump completed on 2015-01-19 15:04:18
